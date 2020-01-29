@@ -104,19 +104,205 @@ public class ArrayStructures {
         return indexWithValue;
     }
 
+    public void printHorizArray(int i, int j) {
+
+        for (int n = 0; n < 51; n++) System.out.print("-");
+
+        System.out.println();
+
+        for (int n = 0; n < arraySize; n++) {
+
+            System.out.print("| " + n + "  ");
+
+        }
+
+        System.out.println("|");
+
+        for (int n = 0; n < 51; n++) System.out.print("-");
+
+        System.out.println();
+
+        for (int n = 0; n < arraySize; n++) {
+
+            System.out.print("| " + theArray[n] + " ");
+
+        }
+
+        System.out.println("|");
+
+        for (int n = 0; n < 51; n++) System.out.print("-");
+
+        System.out.println();
+
+        // ADD for BubbleSort
+
+        if (j != -1) {
+
+            for (int k = 0; k < ((j * 5) + 2); k++) System.out.print(" ");
+
+            System.out.print(j);
+        }
+
+        // ADD this for other sorting algorithms.
+
+        if (i != -1) {
+
+            for (int l = 0; l < (5 * (i - j) - 1); l++) System.out.print(" ");
+
+            System.out.print(i);
+
+        }
+
+        System.out.println();
+
+
+    }
+
+
+    public void bubbleSort() {
+
+        for (int i = arraySize - 1; i > 1; i--) {
+
+            for (int j = 0; j < i; j++) {
+
+                if (theArray[j] > theArray[j + 1]) {
+
+                    swapValues(j, j + 1);
+
+                    printHorizArray(i, j);
+
+                }
+
+            }
+
+        }
+
+    }
+
+    public void swapValues(int indexOne, int indexTwo) {
+
+        int temp = theArray[indexOne];
+        theArray[indexOne] = theArray[indexTwo];
+        theArray[indexTwo] = temp;
+
+    }
+
+    public void binarySearch(int value) {
+
+        int lowIndex = 0;
+        int highIndex = arraySize - 1;
+
+        while (highIndex >= lowIndex) {
+
+            int midIndex = (highIndex + lowIndex) / 2;
+
+            if (theArray[midIndex] < value) {
+                lowIndex = midIndex + 1;
+            } else if (theArray[midIndex] > value) {
+                highIndex = midIndex - 1;
+            } else {
+                System.out.println("\nFound a match for " + value + " at index " + midIndex);
+
+                lowIndex = highIndex + 1;
+            }
+
+            printHorizArray(midIndex, -1);
+
+        }
+    }
+
+    public void selectionSort() {
+
+        for (int x = 0; x < arraySize; x++) {
+            int min = x;
+
+            for (int y = x; y < arraySize; y++) {
+                if (theArray[min] > theArray[y]) {
+                    min = y;
+                }
+            }
+
+            swapValues(x, min);
+
+            printHorizArray(x, -1);
+        }
+    }
+
+    public void insertionSort() {
+
+        for (int i = 1; i < arraySize; i++) {
+            int j = i;
+            int toInsert = theArray[i];
+            while ((j > 0) && (theArray[j - 1] > toInsert)) {
+                theArray[j] = theArray[j - 1];
+                j--;
+
+                printHorizArray(i, j);
+
+            }
+            theArray[j] = toInsert;
+
+            printHorizArray(i, j);
+
+            System.out.println("\nArray[i] = " + theArray[i] + " Array[j] = " + theArray[j] + " toInsert = " + toInsert + "\n");
+
+        }
+
+    }
+
+
     public static void main(String[] args) {
 
 
         ArrayStructures newArray = new ArrayStructures();
 
         newArray.generateRandomArray();
-        newArray.printArray();
-        System.out.println(newArray.getValueAtIndex(5));
-        System.out.println(newArray.doesArrayContainThisValue(12));
-        newArray.deleteIndex(5);
-        newArray.printArray();
-        newArray.insertValue(55);
-        newArray.printArray();
-        newArray.linearSearch(17);
+
+        /*
+
+        newArray.printHorizArray(-1, -1);
+        newArray.bubbleSort();
+        newArray.selectionSort();
+        newArray.insertionSort();
+        newArray.binarySearch(15);
+
+        */
+
+        TheStack theStack = new TheStack(10);
+
+        /*
+
+        theStack.push("10");
+        theStack.push("17");
+        theStack.push("13");
+        theStack.peek();
+        theStack.pop();
+        theStack.pop();
+        theStack.pushMany(" R A B E");
+        theStack.popDisplayAll();
+        theStack.displayTheStack();
+
+        */
+
+        TheQueue theQueue = new TheQueue(10);
+
+        /*
+
+        theQueue.displayQueue();
+        theQueue.queue("10");
+        theQueue.queue("13");
+        theQueue.queue("14");
+        theQueue.queue("11");
+
+        theQueue.dequeue();
+        theQueue.displayQueue();
+
+        theQueue.priorityQueue("11");
+        theQueue.priorityQueue("14");
+        theQueue.priorityQueue("12");
+
+        theQueue.displayQueue();
+        
+        */
     }
 }
