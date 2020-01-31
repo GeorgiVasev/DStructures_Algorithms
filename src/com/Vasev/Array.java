@@ -1,6 +1,6 @@
 package com.Vasev;
 
-public class ArrayStructures {
+public class Array {
 
     private int[] theArray = new int[50];
     private int arraySize = 10;
@@ -248,61 +248,5 @@ public class ArrayStructures {
 
         }
 
-    }
-
-
-    public static void main(String[] args) {
-
-
-        ArrayStructures newArray = new ArrayStructures();
-
-        newArray.generateRandomArray();
-
-        /*
-
-        newArray.printHorizArray(-1, -1);
-        newArray.bubbleSort();
-        newArray.selectionSort();
-        newArray.insertionSort();
-        newArray.binarySearch(15);
-
-        */
-
-        TheStack theStack = new TheStack(10);
-
-        /*
-
-        theStack.push("10");
-        theStack.push("17");
-        theStack.push("13");
-        theStack.peek();
-        theStack.pop();
-        theStack.pop();
-        theStack.pushMany(" R A B E");
-        theStack.popDisplayAll();
-        theStack.displayTheStack();
-
-        */
-
-        TheQueue theQueue = new TheQueue(10);
-
-        /*
-
-        theQueue.displayQueue();
-        theQueue.queue("10");
-        theQueue.queue("13");
-        theQueue.queue("14");
-        theQueue.queue("11");
-
-        theQueue.dequeue();
-        theQueue.displayQueue();
-
-        theQueue.priorityQueue("11");
-        theQueue.priorityQueue("14");
-        theQueue.priorityQueue("12");
-
-        theQueue.displayQueue();
-        
-        */
     }
 }
