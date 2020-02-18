@@ -78,6 +78,8 @@ public class Main {
 
         DoubleEndedLinkedList doubleLinkList = new DoubleEndedLinkedList();
 
+        /*
+
         doubleLinkList.insertInFirstPosition("George Todosev",4);
         doubleLinkList.insertInFirstPosition("Maria Todoseva",2);
         doubleLinkList.insertInFirstPosition("Rosen Vasilev",1);
@@ -85,6 +87,44 @@ public class Main {
 
         doubleLinkList.display();
 
+         */
 
+        int [] array = new int[7];
+
+        for (int i = 0; i < array.length; i ++) {
+            array[i] = (int) (Math.random()*10);
+        }
+        System.out.println("Array before sorting:");
+        for (int i : array){
+            System.out.print(i + " ");
+        }
+
+        // SortAlgorithms.bubbleSort(array);
+        // SortAlgorithms.selectionSort(array);
+        // SortAlgorithms.insertionSort(array);
+        // SortAlgorithms.shellSort(array,array.length);
+        // SortAlgorithms.mergeSort(array,0,array.length-1);
+           SortAlgorithms.quickSort(array,0,array.length-1);
+
+        System.out.println("\nArray after sorting:");
+        for (int i : array){
+            System.out.print(i + " ");
+        }
+        int indexToFind = 5;
+        System.out.println();
+        if(SortAlgorithms.linearSearch(array,indexToFind) != -1) {
+            System.out.println("Index found at: " + SortAlgorithms.linearSearch(array,indexToFind));
+        } else {
+            System.out.println("Index not found!");
+        }
+        int beg = 0;
+        int end = array.length-1;
+        int location = SortAlgorithms.binarySearch(array,beg,end,indexToFind);
+
+        if(location != -1) {
+            System.out.println("Index found at: " + location);
+        } else {
+            System.out.println("Index not found!");
+        }
     }
 }
