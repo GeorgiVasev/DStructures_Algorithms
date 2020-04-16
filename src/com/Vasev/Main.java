@@ -1,5 +1,7 @@
 package com.Vasev;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -87,8 +89,104 @@ public class Main {
 
         doubleLinkList.display();
 
-         */
+        */
 
+        /* HashFunction
+
+        HashFunction theFunc = new HashFunction(30);
+
+        // Simplest Hash Function
+
+        // String[] elementsToAdd = { "1", "5", "17", "21", "26" };
+
+        // theFunc.hashFunction1(elementsToAdd, theFunc.theArray);
+
+        // Mod Hash Function
+        // This contains exactly 30 items to show how collisions
+        // will work
+
+        String[] elementsToAdd2 = { "100", "510", "170", "214", "268", "398",
+                "235", "802", "900", "723", "699", "1", "16", "999", "890",
+                "725", "998", "978", "988", "990", "989", "984", "320", "321",
+                "400", "415", "450", "50", "660", "624" };
+
+        theFunc.hashFunction2(elementsToAdd2, theFunc.theArray);
+
+        // Locate the value 660 in the Hash Table
+
+        theFunc.findKey("660");
+
+        theFunc.displayTheStack();
+
+        */
+
+        /* HashFunction2 theFunc = new HashFunction2(31);
+
+        String[] elementsToAdd2 = { "100", "510", "170", "214", "268", "398",
+                "235", "802", "900", "723", "699", "1", "16", "999", "890",
+                "725", "998", "978", "988", "990", "989", "984", "320", "321",
+                "400", "415", "450", "50", "660", "624" };
+
+        // Demonstrate how data normally follows patterns and how
+        // a non-prime sized array can cause havoc
+
+        String[] elementsToAdd3 = { "30", "60", "90", "120", "150", "180",
+                "210", "240", "270", "300", "330", "360", "390", "420", "450",
+                "480", "510", "540", "570", "600", "989", "984", "320", "321",
+                "400", "415", "450", "50", "660", "624" };
+
+        theFunc.hashFunction2(elementsToAdd2, theFunc.theArray);
+
+        // theFunc.modThirty();
+
+        theFunc.increaseArraySize(60);
+
+        theFunc.displayTheStack();
+
+        theFunc.fillArrayWithNeg1();
+
+        theFunc.doubleHashFunc(elementsToAdd2, theFunc.theArray);
+
+        theFunc.displayTheStack();
+
+        theFunc.findKeyDblHashed("990");
+
+        */
+
+        Scanner input = new Scanner(System.in);
+
+        // Make a 11 item array that will hold words
+        // and definitions
+
+        HashFunction3 wordHashTable = new HashFunction3(11);
+
+        String wordLookUp = "a";
+
+        // Keep retrieve requests until x is entered
+
+        while (!wordLookUp.equalsIgnoreCase("x")) {
+
+            System.out.println(": ");
+
+            wordLookUp = input.nextLine();
+
+            // Look for the word requested and print
+            // it out to screen
+
+            System.out.println(wordHashTable.find(wordLookUp));
+
+        }
+
+        // Display every item in the array with
+        // the index they are associated with
+
+        wordHashTable.displayTheArray();
+
+
+        //Sorting Algorithms
+
+
+        /*
         int [] array = new int[7];
 
         for (int i = 0; i < array.length; i ++) {
@@ -126,5 +224,7 @@ public class Main {
         } else {
             System.out.println("Index not found!");
         }
+
+        */
     }
 }

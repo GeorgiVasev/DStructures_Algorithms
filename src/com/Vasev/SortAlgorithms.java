@@ -12,16 +12,13 @@ public class SortAlgorithms {
                 }
             }
         }
-
     }
 
     // Linear search
     static int linearSearch(int[] array, int value) {
 
         for (int i = 0; i < array.length; i++) {
-            if (array[i] == value) {
-                return i;
-            }
+            if (array[i] == value) return i;
         }
         return -1;
     }
@@ -48,9 +45,7 @@ public class SortAlgorithms {
         for (int x = 0; x < array.length; x++) {
             int min = x;
             for (int y = x; y < array.length; y++) {
-                if (array[min] > array[y]) {
-                    min = y;
-                }
+                if (array[min] > array[y]) min = y;
             }
             swap(array, x, min);
         }
